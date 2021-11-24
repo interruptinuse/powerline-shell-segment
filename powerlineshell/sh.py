@@ -1,6 +1,6 @@
 import os
 
-def eval(pl, command, format='%s'):
+def eval(pl, command, format='%s', highlight_groups=['powerline_shell']):
     p = os.popen(command)
     result = p.read().strip()
 
@@ -10,6 +10,6 @@ def eval(pl, command, format='%s'):
     return [
         {
             'contents': format % result,
-            'highlight_groups': ['powerline_shell']
+            'highlight_groups': highlight_groups
         }
     ]
