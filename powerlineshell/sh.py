@@ -1,7 +1,11 @@
 import os
 
 def eval(pl, command, format='%s'):
-    result = os.popen(command).read().strip()
+    p = os.popen(command)
+    result = p.read().strip()
+
+    if p.close():
+        return None
 
     return [
         {
