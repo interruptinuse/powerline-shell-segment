@@ -1,6 +1,8 @@
 import os
+import powerline
+import powerline.lib.shell
 
-def eval(pl, command, format='%s', highlight_groups=['powerline_shell']):
+def eval(pl, command, format='%s', highlight_groups=['powerline_shell'], divider_highlight_group='background:divider'):
     p = os.popen(command)
     result = p.read().strip()
 
@@ -10,6 +12,7 @@ def eval(pl, command, format='%s', highlight_groups=['powerline_shell']):
     return [
         {
             'contents': format % result,
-            'highlight_groups': highlight_groups
+            'highlight_groups': highlight_groups,
+            'divider_highlight_group': divider_highlight_group
         }
     ]
