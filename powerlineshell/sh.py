@@ -6,7 +6,7 @@ def eval(pl, command, format='%s', highlight_groups=['powerline_shell'], divider
     p = os.popen(command)
     result = p.read().strip()
 
-    if p.close():
+    if p.close() or len(result) == 0:
         return None
 
     return [
